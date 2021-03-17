@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # [과제]격자 무늬 그리기
+# # [과제]격자 무늬 그리기 민경범
 
-# In[14]:
+# In[39]:
 
 
 
@@ -21,8 +21,10 @@ screen = pygame.display.set_mode(size)
 done = False
 clock = pygame.time.Clock()
 
+
 # 4. pygame 무한루프
-def runGame():
+
+def grid(num1, num2):
     global done
     while not done:
         clock.tick(10)
@@ -31,20 +33,35 @@ def runGame():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done=True
-                
-        pygame.draw.line(screen, (255, 0, 0), (0, 0), (60, 0), 3)
-        pygame.draw.line(screen, (255, 0, 0), (0, 20), (60, 20), 3)
-        pygame.draw.line(screen, (255, 0, 0), (0, 40), (60, 40), 3)
-        pygame.draw.line(screen, (255, 0, 0), (0, 60), (60, 60), 3)  
-        pygame.draw.line(screen, (255, 0, 0), (0, 0), (0, 60), 3)
-        pygame.draw.line(screen, (255, 0, 0), (20, 0), (20, 60), 3)
-        pygame.draw.line(screen, (255, 0, 0), (40, 0), (40, 60), 3)
-        pygame.draw.line(screen, (255, 0, 0), (60, 0), (60, 60), 3)
         
-        pygame.display.update()
+            if num1 == 3 and num2 == 4:
+              for i in range(0, 4):
+                for j in range(0, 5):
+                    #가로줄
+                    pygame.draw.line(screen, (255, 0, 0), (0, i*20), (80, i*20), 3)
+                    #세로줄
+                    pygame.draw.line(screen, (255, 0, 0), (j*20, 0), (j*20, 60), 3)
+                    pygame.display.update()
+                
+            elif num1 == 2 and num2 == 5:
+              for i in range(0, 3):
+                for j in range(0, 6):
+                    #가로줄
+                    pygame.draw.line(screen, (255, 0, 0), (0, i*20), (100, i*20), 3)
+                    #세로줄
+                    pygame.draw.line(screen, (255, 0, 0), (j*20, 0), (j*20, 40), 3)
+                    pygame.display.update()
+            else:
+                print('다시입력해주세요')
 
-runGame()
+grid(2,5)
 pygame.quit()
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
